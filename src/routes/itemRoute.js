@@ -1,12 +1,12 @@
 import express from "express";
 
-import * as itemsController from "../controllers/itemController.js";
+import * as itemController from "../controllers/itemController.js";
 
 const router = express.Router();
 
-router.get("/", itemsController.getItems);
-router.post("/", itemsController.createItem);
-router.put("/:id", itemsController.editItem);
-router.delete("/:id", itemsController.deleteItem);
+router.get("/", itemController.getItems);
+router.post("/", itemController.createItem);
+router.put("/:id", itemController.editItem);
+router.delete("/:id", itemController.deleteItem);
 
 export default router;

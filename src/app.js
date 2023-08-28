@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 
-import ItemsRoute from "./routes/itemRoute.js";
+import ItemRoute from "./routes/itemRoute.js";
 
 const app = express();
 
@@ -13,6 +13,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 // use routes
-app.use("/items", ItemsRoute);
+app.use("/items", ItemRoute);
 
 export default app;
