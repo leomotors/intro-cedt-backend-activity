@@ -3,4 +3,4 @@ __MACOSX
 node_modules
 .vscode
 
-db.json
+.env

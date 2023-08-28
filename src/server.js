@@ -1,3 +1,6 @@
+import "dotenv/config";
+import "./config/db.js";
+
 import app from "./app.js";
 
 // This is for maintaining the server.

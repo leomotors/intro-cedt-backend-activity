@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 
-import ItemsRoute from "./routes/itemsRoute.js";
+import ItemsRoute from "./routes/itemRoute.js";
 
 const app = express();
 
