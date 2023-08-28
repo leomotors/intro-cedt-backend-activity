@@ -2,11 +2,11 @@ version: "3"
 
 services:
   mongo:
-    image: mongo:5.0.10
+    image: mongo:7
     container_name: f2cedt-mongo
     restart: unless-stopped
     volumes:
-      - database-storage:/var/lib/postgresql/data
+      - database-storage:/data/db
     ports:
       - 27017:27017
 

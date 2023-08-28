@@ -8,8 +8,6 @@ export const createItem = async (req, res) => {
 
     res.status(200).json({ message: "OK" });
   } catch (err) {
-    console.log({ err });
-
     if (err.name === "ValidationError") {
       res.status(400).json({ error: "Bad Request" });
     } else {
@@ -36,7 +34,6 @@ export const editItem = async (req, res) => {
       res.status(404).json({ error: "Not Found" });
     }
   } catch (err) {
-    console.log({ err });
     if (err.name === "CastError") {
       res.status(400).json({ error: "Bad Request" });
     } else {
