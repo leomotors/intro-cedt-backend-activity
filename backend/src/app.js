@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// allow request from other origin (Frontend)
+// allow request from other origin (Frontend which is at different port)
 app.use(cors());
 
 // use routes
