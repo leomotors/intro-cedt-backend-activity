@@ -20,6 +20,6 @@ process.on("unhandledRejection", (err) => {
 });
 
 const PORT = 3222;
-const server = app.listen(PORT, "127.0.0.1", () => {
+const server = app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server ready at http://localhost:${PORT}`);
 });
