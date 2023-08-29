@@ -1,6 +1,6 @@
 import Item from "../models/itemModel.js";
 
-/** @type {import('express').RequestHandler} */
+/** @type {import("express").RequestHandler} */
 export const createItem = async (req, res) => {
   try {
     const newItem = new Item(req.body);
@@ -16,14 +16,14 @@ export const createItem = async (req, res) => {
   }
 };
 
-/** @type {import('express').RequestHandler} */
+/** @type {import("express").RequestHandler} */
 export const getItems = async (req, res) => {
   const items = await Item.find();
 
   res.status(200).json(items);
 };
 
-/** @type {import('express').RequestHandler} */
+/** @type {import("express").RequestHandler} */
 export const editItem = async (req, res) => {
   try {
     const updated = await Item.findByIdAndUpdate(req.params.id, req.body);
@@ -42,7 +42,7 @@ export const editItem = async (req, res) => {
   }
 };
 
-/** @type {import('express').RequestHandler} */
+/** @type {import("express").RequestHandler} */
 export const deleteItem = async (req, res) => {
   try {
     const deleted = await Item.findByIdAndDelete(req.params.id);

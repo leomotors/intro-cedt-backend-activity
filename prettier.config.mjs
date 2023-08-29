@@ -1,6 +1,8 @@
 // @ts-check
 
-/** @satisfies {import('prettier').Config} */
+// Note: This is default prettier configuration
+
+/** @satisfies {import("prettier").Config} */
 const config = {
   printWidth: 80,
   tabWidth: 2,
