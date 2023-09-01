@@ -1,20 +1,41 @@
-import mongoose from "mongoose";
+const itemSchema = {
+  item: 'string',
+  name: 'string',
+  price: 'number',
+};
 
-const itemSchema = new mongoose.Schema({
-  item: {
-    type: String,
-    required: true,
-  },
-  name: {
-    type: String,
-    required: true,
-  },
-  price: {
-    type: Number,
-    required: true,
-  },
-});
+class Item {
+  /**
+   * @param {string} item
+   * @param {string} name
+   * @param {number} price
+   */
+  constructor(item, name, price) {
+    this.item = item;
+    this.name = name;
+    this.price = price;
+  }
+};
 
-const Item = mongoose.model("Item", itemSchema);
+/**
+ * @param {object} obj 
+ * @returns Item
+ */
+function itemFromObject(obj) {
+  const errors = [];
+  for(const field in itemSchema) {
+    if (!(field in obj)) {
+      errors.push(`Expected key '${field}'`)
+    } else {
+      if (typeof(obj[field]) != itemSchema[field]) {
+        errors.push(`Expected value of '${field}' to be ${itemSchema[field]}, found ${typeof(obj[field])}`)
+      }
+    }
+  }
+  if (errors.length > 0) {
+    throw new Error(errors.join('\n'));
+  }
+  return new Item(obj.item, obj.name, obj.price);
+}
 
-export default Item;
+export { Item, itemFromObject };
