@@ -7,8 +7,8 @@ export const createItem = async (req, res) => {
     const item = itemFromObject(req.body);
     items.push(item);
     res.status(200).json({ message: "OK" });
-  } catch(e) {
-    console.error(e)
+  } catch (e) {
+    console.error(e);
     res.status(400).json({ error: "Bad Request" });
   }
 };
