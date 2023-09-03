@@ -59,4 +59,8 @@ export async function handleCreateItem() {
 
   await createItem(payload);
   await fetchAndDrawTable();
+
+  itemToAdd.value = "";
+  nameToAdd.value = "0";
+  priceToAdd.value = "";
 }
