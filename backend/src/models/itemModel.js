@@ -1,7 +1,7 @@
 const itemSchema = {
-  item: 'string',
-  name: 'string',
-  price: 'number',
+  item: "string",
+  name: "string",
+  price: "number",
 };
 
 class Item {
@@ -15,25 +15,39 @@ class Item {
     this.name = name;
     this.price = price;
   }
-};
+}
 
 /**
- * @param {object} obj 
+ * @param {object} obj
  * @returns Item
  */
 function itemFromObject(obj) {
   const errors = [];
-  for(const field in itemSchema) {
+  for (const field in itemSchema) {
     if (!(field in obj)) {
-      errors.push(`Expected key '${field}'`)
+      errors.push(`Expected key '${field}'`);
     } else {
-      if (typeof(obj[field]) != itemSchema[field]) {
-        errors.push(`Expected value of '${field}' to be ${itemSchema[field]}, found ${typeof(obj[field])}`)
+      if (itemSchema[field] == "number") {
+        try {
+          obj[field] = parseFloat(obj[field]);
+        } catch (e) {
+          errors.push(
+            `Expected value of '${field}' to be a number, found ${typeof obj[
+              field
+            ]}`,
+          );
+        }
+      } else if (typeof obj[field] != itemSchema[field]) {
+        errors.push(
+          `Expected value of '${field}' to be ${
+            itemSchema[field]
+          }, found ${typeof obj[field]}`,
+        );
       }
     }
   }
   if (errors.length > 0) {
-    throw new Error(errors.join('\n'));
+    throw new Error(errors.join("\n"));
   }
   return new Item(obj.item, obj.name, obj.price);
 }
