@@ -1,5 +1,3 @@
-// @ts-check
-
 // Note: This is default prettier configuration
 
 /** @satisfies {import("prettier").Config} */
