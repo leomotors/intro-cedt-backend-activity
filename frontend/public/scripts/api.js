@@ -23,21 +23,7 @@ export async function createItem(item) {
   });
 }
 
-/**
- * @param {string} id
- * @param {ItemPayload} item
- */
-export async function editItem(id, item) {
-  await fetch(`${BACKEND_URL}/items/${id}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(item),
-  });
-}
-
-export async function deleteItem(id, item) {
+export async function deleteItem(id) {
   await fetch(`${BACKEND_URL}/items/${id}`, {
     method: "DELETE",
   });
