@@ -14,12 +14,14 @@ class Item {
     this.item = item;
     this.name = name;
     this.price = price;
+
+    this._id = Math.random().toString(36).slice(2, 9);
   }
 }
 
 /**
  * @param {object} obj
- * @returns Item
+ * @returns {Item}
  */
 function itemFromObject(obj) {
   const errors = [];
@@ -34,14 +36,14 @@ function itemFromObject(obj) {
           errors.push(
             `Expected value of '${field}' to be a number, found ${typeof obj[
               field
-            ]}`,
+            ]}`
           );
         }
       } else if (typeof obj[field] != itemSchema[field]) {
         errors.push(
           `Expected value of '${field}' to be ${
             itemSchema[field]
-          }, found ${typeof obj[field]}`,
+          }, found ${typeof obj[field]}`
         );
       }
     }
