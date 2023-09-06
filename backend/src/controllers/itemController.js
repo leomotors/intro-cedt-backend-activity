@@ -44,19 +44,6 @@ export const editItem = async (req, res) => {
 
 /** @type {import("express").RequestHandler} */
 export const deleteItem = async (req, res) => {
-  try {
-    const deleted = await Item.findByIdAndDelete(req.params.id);
-
-    if (deleted) {
-      res.status(200).json({ message: "OK" });
-    } else {
-      res.status(404).json({ error: "Not Found" });
-    }
-  } catch (err) {
-    if (err.name === "CastError") {
-      res.status(400).json({ error: "Bad Request" });
-    } else {
-      res.status(500).json({ error: "Internal server error." });
-    }
-  }
+  // TODO: Student's Work - Implement Delete Item
+  res.status(501).json({ error: "Not Implemented" });
 };
